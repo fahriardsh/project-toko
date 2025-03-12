@@ -26,11 +26,13 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 
+// import { Profile } from '@/components/layout/Profile'
+
 // This is sample data.
-const data = {
+const menu = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "",
+    // email: "m@example.com",
     avatar: "/avatar/man-w-sunglasses.jpg",
   },
   teams: [
@@ -156,17 +158,29 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AppSidebarProps {
+  data: {
+    user: {
+      name: string; // Or string | null, depending on your requirements
+      avatar: string;
+    };
+  };
+}
+
+export function AppSidebar({ data }: AppSidebarProps) {
+
+  // const username = props.username;
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon">
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <TeamSwitcher teams={menu.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavMain items={menu.navMain} />
+        <NavProjects projects={menu.projects} />
       </SidebarContent>
       <SidebarFooter>
+        {/* <Profile /> */}
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />

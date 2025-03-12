@@ -1,15 +1,43 @@
 import { AppSidebar } from "@/components/app-sidebar"
+import {
+  AudioWaveform,
+  BookOpen,
+  Bot,
+  Command,
+  Frame,
+  GalleryVerticalEnd,
+  Map,
+  PieChart,
+  Settings2,
+  SquareTerminal,
+} from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import React from 'react';
 
-export default function Sidebar() {
+interface SidebarProps {
+  username: string;
+}
+
+export default function Sidebar({ username }: SidebarProps) {
+
+  // This is sample data.
+  const data = {
+    user: {
+      name: username,
+      // email: "m@example.com",
+      avatar: "/avatar/man-w-sunglasses.jpg",
+    }
+  }
+
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar data={data} />
+      {/* <AppSidebar username={username} /> */}
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
@@ -18,6 +46,7 @@ export default function Sidebar() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+          {/* Display the username somewhere (example) */}
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <div className="aspect-video rounded-xl bg-muted/50" />
             <div className="aspect-video rounded-xl bg-muted/50" />
