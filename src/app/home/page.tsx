@@ -3,6 +3,7 @@
 import Sidebar from "@/components/layout/Sidebar"; // Import the new sidebar component
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import Image from 'next/image';
 
 // Helper function to get the username from the cookie value
 const getUsernameFromCookie = async (): Promise<string | null> => {
@@ -34,6 +35,12 @@ export default async function HomePage() {
             <main className="flex-1 p-4">
                 <h1 className="text-2xl font-bold mb-4">Welcome! {username}</h1>
                 <p>This is the home page content.</p>
+                <Image
+                    src={'/avatar/man-w-sunglasses.jpg'}
+                    alt="Avatar"
+                    width={100}
+                    height={100}
+                />
             </main>
         </div>
     );
