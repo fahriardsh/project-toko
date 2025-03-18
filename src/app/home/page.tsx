@@ -11,6 +11,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 // import MyGrid from '@/components/my-grid';
 import ProductListContainer from '@/components/home-product-table';
+import ProductCardContainer from '@/components/home-product-card';
+import {ProductBarchartContainer} from '@/components/home-product-barchart';
 
 // Helper function to get the username from the cookie value
 const getUsernameFromCookie = async (): Promise<string> => {
@@ -58,6 +60,10 @@ export default async function HomePage() {
                     </div>
                     </header>
                     <main className="flex-1 p-4">
+                        <ProductCardContainer />
+                        <br />
+                        <ProductBarchartContainer />
+                        <br />
                         <ProductListContainer />
                     </main>
                 </SidebarInset>
