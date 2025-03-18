@@ -1,0 +1,7 @@
+.ag-cell-focus,.ag-cell-no-focus {
+    border:none !important;
+}
+
+.ag-cell, .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+    line-height: 48px !important;
+}
