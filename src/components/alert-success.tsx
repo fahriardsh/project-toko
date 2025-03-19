@@ -6,13 +6,14 @@ import {
   AlertTitle,
 } from "@/components/ui/alert"
 
-export function AlertSuccess() {
+export function AlertSuccess(item: any) {
+
   return (
     <Alert style= {{color: "#4CAF50"}}> 
       <CircleCheck className="h-4 w-4" />
       <AlertTitle>Success!</AlertTitle>
       <AlertDescription>
-        Produk baru berhasil ditambahkan.
+        {item.name}
       </AlertDescription>
     </Alert>
   )

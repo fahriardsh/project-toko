@@ -5,3 +5,9 @@
 .ag-cell, .ag-full-width-row .ag-cell-wrapper.ag-row-group {
     line-height: 48px !important;
 }
+
+.ghost:hover {
+    background-color: #098af4;
+    border: none;
+    color: white;
+}

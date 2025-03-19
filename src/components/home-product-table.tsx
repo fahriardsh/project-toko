@@ -10,14 +10,10 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
 import AddProductButton from '@/components/home-add-product';
+import DeleteProductButton from '@/components/home-delete-product';
+import DetailProductButton from '@/components/home-detail-product';
 
-import { CircleCheck, CircleMinus, CircleAlert } from "lucide-react"
-
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/components/ui/alert"
+import { CircleCheck, CircleMinus, CircleAlert, Trash } from "lucide-react"
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 interface Product {
@@ -31,7 +27,6 @@ const ProductListContainer = () => {
 
     const myTheme = themeQuartz.withParams({ accentColor: 'red' });
     const gridRef = useRef<AgGridReact>(null);
-    const [rowData, setRowData] = useState<any[]>([]);
 
     const filterParams: INumberFilterParams = {
         filterOptions: [
@@ -83,6 +78,13 @@ const ProductListContainer = () => {
             // floatingFilter: true,
         },
         { 
+            headerName: 'Deskripsi', 
+            field: 'description', 
+            filter: true,
+            flex: 1
+            // floatingFilter: true,
+        },
+        { 
             headerName: 'Harga Beli',
             field: 'latest_purchase_price',
             width: 150,
@@ -104,8 +106,22 @@ const ProductListContainer = () => {
                     return <Badge variant="outline" className="my-2 p-1 w-max" style= {{backgroundColor: "#FFEB3B"}}><CircleAlert></CircleAlert>Hampir Habis</Badge>;
                 }
             },
-            width: 140
-        }
+            width: 140,
+            resizable: false
+        },
+        {
+            field: 'actions',
+            headerName: 'Actions',
+            cellRenderer: (params: any) => {
+                return <div className='pt-2 flex gap-2'>
+                    <DetailProductButton id = {params.data.product_id}></DetailProductButton>
+                    <DeleteProductButton id = {params.data.product_id}></DeleteProductButton>
+                </div>
+                
+            },
+            width: 150,
+            resizable: false
+        },
     ]);
 
     const defaultColDef = useMemo(() => { 

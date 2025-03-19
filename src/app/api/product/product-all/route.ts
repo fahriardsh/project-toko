@@ -26,6 +26,7 @@ export async function GET() {
                 pr.id AS product_id,
                 pr.product_name,
                 pr.variant,
+                pr.description,
                 COALESCE(SUM(pi.quantity_change), 0) AS current_quantity,
                 TO_CHAR((
                     SELECT pp.purchase

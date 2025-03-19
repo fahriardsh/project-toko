@@ -43,11 +43,11 @@ export default async function HomePage() {
 
     const data = {
         user: {
-          name: username,
-          // email: "m@example.com",
-          avatar: "/avatar/man-w-sunglasses.jpg",
+            name: username,
+            // email: "m@example.com",
+            avatar: "/avatar/man-w-sunglasses.jpg",
         }
-      }
+    }
 
     return (
         <div className="flex h-screen">
@@ -65,7 +65,15 @@ export default async function HomePage() {
                         <ProductBarchartContainer />
                         <br />
                         <ProductListContainer />
+                        <br />
                     </main>
+                    <footer className="flex h-14 shrink-0 items-center gap-2">
+                        <div className="flex flex-1 items-center gap-2 px-3">
+                        </div>
+                        <div className="flex flex-end items-center gap-2 px-3">
+                            <p>© PROJECT TOKO.</p>
+                        </div>
+                    </footer>
                 </SidebarInset>
             </SidebarProvider>
         </div>
