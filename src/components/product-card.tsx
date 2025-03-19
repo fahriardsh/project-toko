@@ -42,7 +42,7 @@ async function getProduct(productId: number): Promise<Product | null> {
         // Build the URL with the id as a query parameter.
         const baseUrl = process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000/'  // Your development URL
-        : 'project-toko-seven.vercel.app'; // Leave empty in production (it will be relative)
+        : 'https://project-toko-seven.vercel.app/'; // Leave empty in production (it will be relative)
         const url = baseUrl + `/api/product/product-id?id=${productId}`;
 
         const response = await fetch(url, {
